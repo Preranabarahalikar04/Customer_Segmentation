@@ -41,8 +41,123 @@ The dataset consists of following five features of 200 customers:
 -  Annual Income (k$): Annual Income of the customer
 -  Spending Score (1-100): Score assigned by the mall based on customer behavior and spending nature.
 
+## Steps for Implementation
+- Import all necesssary Package
+
+   import ----- from ------
+
+  import -----
+
+- Data Exploration
+
+ customer_data=read.csv("/home/dataflair/Mall_Customers.csv")
+
+ str(customer_data)
+
+ names(customer_data)
+
+ head(customer_data)
+
+ summary(customer_data$Age)
+
+- Statistical Analysis
+
+     sd(customer_data$Age)
+
+     summary(customer_data$Annual.Income..k..)
+
+     sd(customer_data$Annual.Income..k..)
+
+     summary(customer_data$Age)
+
+- Visualizations
+
+      Bar Plot
+
+      a=table(customer_data$Gender)
+
+      barplot(a,main="Using BarPlot to display Gender Comparision",
+
+       ylab="Count",
+       
+       xlab="Gender",
+       
+       col=rainbow(2),
+       
+       legend=rownames(a))
 
 
+       Pie Chart
+
+        pct=round(a/sum(a)*100)
+
+       lbs=paste(c("Female","Male")," ",pct,"%",sep=" ")
+
+       library(plotrix)
+
+       pie3D(a,labels=lbs,
+
+       main="Pie Chart Depicting Ratio of Female and Male")
+
+       Histogram
+
+       hist(customer_data$Age,
+
+       col="blue",
+
+       main="Histogram to Show Count of Age Class",
+
+        xlab="Age Class",
+        ylab="Frequency",
+        labels=TRUE)
+
+  ## Analysis
+
+        Analyzing the annual income of the customers through the Histogram
+
+        summary(customer_data$Annual.Income..k..)
+
+        hist(customer_data$Annual.Income..k..,
+
+        col="#660033",
+
+         main="Histogram for Annual Income",
+         xlab="Annual Income Class",
+         ylab="Frequency",
+         labels=TRUE)
+
+  ## Density plot
+
+        Density Plot
+        plot(density(customer_data$Annual.Income..k..),
+
+        col="yellow",
+
+        main="Density Plot for Annual Income",
+        xlab="Annual Income Class",
+        ylab="Density")
+        polygon(density(customer_data$Annual.Income..k..),
+        col="#ccff66")
 
 
+       Analyzing Spending Score of the Customers with the help of BoxPlot
+       summary(customer_data$Spending.Score..1.100.)
+
+       Min. 1st Qu. Median Mean 3rd Qu. Max. 
+      ## 1.00 34.75 50.00 50.20 73.00 99.00
+
+      boxplot(customer_data$Spending.Score..1.100.,
+      horizontal=TRUE,
+      col="#990000",
+      main="BoxPlot for Descriptive Analysis of Spending Score")
+
+  ##K-means Algorithm
+
+  - We specify the number of clusters that we need to create.
+  - The algorithm selects k objects at random from the dataset. This object is the initial cluster or mean.
+  - The closest centroid obtains the assignment of a new observation. We base this assignment on the Euclidean Distance between object and the centroid
+  - k clusters in the data points update the centroid through calculation of the new mean values present in all the data points of the cluster. The kth cluster’s centroid has a - - Length of p that contains means of all variables for observations in the k-th cluster. We denote the number of variables with p.
+  - Iterative minimization of the total within the sum of squares. Then through the iterative minimization of the total sum of the square, the assignment stop wavering when we - - Achieve maximum iteration. The default value is 10 that the R software uses for the maximum iterations.
+
+       
 
